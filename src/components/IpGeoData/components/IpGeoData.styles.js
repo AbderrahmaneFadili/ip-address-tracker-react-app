@@ -15,6 +15,7 @@ export const IpGeodataContainer = styled.section`
   padding: 1rem 0;
   -webkit-box-shadow: 0px 12px 22px -4px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 12px 22px -4px rgba(0, 0, 0, 0.1);
+  z-index: 555;
 `;
 
 export const IpGeodataInfo = styled.div`
