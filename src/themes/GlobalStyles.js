@@ -17,8 +17,15 @@ const GlobalStyle = createGlobalStyle`
 
   input{
       font-size:18px;
+      font-family: 'Rubik', sans-serif;
+  }
+
+  input::placeholder{
+    font-family: 'Rubik', sans-serif;
   }
   
+
+
 `;
 
 export default GlobalStyle;
