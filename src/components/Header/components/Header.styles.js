@@ -9,6 +9,10 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: 330px) {
+    align-items: flex-start;
+  }
 `;
 
 //Header title
@@ -17,4 +21,10 @@ export const HeaderTitle = styled.h1`
   text-align: center;
   margin: 2rem 0;
   font-weight: 500;
+  white-space: nowrap;
+  align-self: center;
+
+  @media screen and (max-width: 300px) {
+    font-size: 1.4rem;
+  }
 `;
