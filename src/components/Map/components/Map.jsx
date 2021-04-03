@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TileLayer, Marker, Popup } from "react-leaflet";
 import { MapWrapper } from "./Map.styles";
-
+import Loader from "react-loader-spinner";
+import { LoaderContainer } from "../../../themes/GlobalStyles";
 import L from "leaflet";
+import { useTheme } from "styled-components";
 
 //marker icon
 
@@ -12,22 +14,42 @@ const iconPerson = new L.Icon({
   iconSize: new L.Point(60, 75),
 });
 
-const Map = () => {
+const Map = ({ loading, ipData }) => {
+  //for change the color of the loader
+  const theme = useTheme();
+
   return (
-    <MapWrapper
-      zoomControl={false}
-      center={[55.44, 44.3]}
-      zoom={13}
-      scrollWheelZoom={true}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Marker icon={iconPerson} position={[55.44, 44.3]}>
-        <Popup>Welcome</Popup>
-      </Marker>
-    </MapWrapper>
+    <>
+      {loading && (
+        <LoaderContainer style={{ height: "100vh" }}>
+          <Loader
+            type="TailSpin"
+            color={theme.veryDarkGray}
+            height={80}
+            width={80}
+          />
+        </LoaderContainer>
+      )}
+      {ipData && (
+        <MapWrapper
+          zoomControl={false}
+          center={[ipData.location.lat, ipData.location.lng]}
+          zoom={13}
+          scrollWheelZoom={true}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker
+            icon={iconPerson}
+            position={[ipData.location.lat, ipData.location.lng]}
+          >
+            <Popup>Current Location</Popup>
+          </Marker>
+        </MapWrapper>
+      )}
+    </>
   );
 };
 

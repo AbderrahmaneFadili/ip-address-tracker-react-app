@@ -18,7 +18,7 @@ export const IpGeodataContainer = styled.section`
   z-index: 555;
 
   @media screen and (min-width: 1000px) {
-    align-items: flex-end;
+    align-items: flex-start;
     flex-direction: row;
     justify-content: initial;
     text-align: left;
@@ -43,8 +43,7 @@ export const IpGeodataInfo = styled.div`
       width: 1px;
       background-color: ${({ theme }) => theme.darkGray};
       right: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 20px;
     }
   }
 `;
