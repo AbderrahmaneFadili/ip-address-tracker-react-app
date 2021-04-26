@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   IpGeodataContainer,
   IpGeodataInfo,
@@ -9,7 +9,7 @@ import Loader from "react-loader-spinner";
 import { LoaderContainer } from "../../../themes/GlobalStyles";
 import { useTheme } from "styled-components";
 
-const IpGeoData = ({ loading, ipData, error, fetchIpInfo }) => {
+const IpGeoData = ({ loading, ipData, fetchIpInfo }) => {
   useEffect(() => {
     fetchIpInfo("");
   }, []);

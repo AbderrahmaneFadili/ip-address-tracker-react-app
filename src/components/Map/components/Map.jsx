@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TileLayer, Marker, Popup } from "react-leaflet";
 import { MapWrapper } from "./Map.styles";
 import Loader from "react-loader-spinner";
@@ -45,7 +45,7 @@ const Map = ({ loading, ipData }) => {
             icon={iconPerson}
             position={[ipData.location.lat, ipData.location.lng]}
           >
-            <Popup>Current Location</Popup>
+            <Popup>Current Location : {ipData.location.region}</Popup>
           </Marker>
         </MapWrapper>
       )}
