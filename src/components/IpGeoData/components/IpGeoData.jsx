@@ -12,7 +12,7 @@ import { useTheme } from "styled-components";
 const IpGeoData = ({ loading, ipData, fetchIpInfo }) => {
   useEffect(() => {
     fetchIpInfo("");
-  }, []);
+  }, [fetchIpInfo]);
 
   const theme = useTheme();
   return (
